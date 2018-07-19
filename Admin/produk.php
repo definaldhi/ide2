@@ -13,17 +13,17 @@
 	</thead>
 	<tbody>
 		<?php $nomor=1; ?>
-		<?php $ambil=$koneksi->query("SELECT * FROM produk"); ?>
+		<?php $ambil = $koneksi->query("SELECT * FROM produk"); ?>
 		<?php while($pecah = $ambil->fetch_assoc()){ ?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
 			<td><?php echo $pecah['nama_produk']; ?></td>
 			<td><?php echo $pecah['harga_produk']; ?> </td>
-			<td><img src="../foto_produk/<?php echo $pecah['foto_produk']; ?>" width="120"></td>
+			<td><img src="../foto_produk/<?php echo $pecah['foto_produk']; ?>" width="250"></td>
 			<td><?php echo $pecah['deskripsi_produk']; ?></td>
 			<td>
-				<a href="index.php?halaman=hapusproduk&id=<?php echo $pecah['id_produk']; ?>" class="btn-danger btn">DELETE</a>
-				<a href="index.php?halaman=ubahproduk&id=<?php echo $pecah['id_produk']; ?>" class="btn btn-warning">UPDATE</a>
+				<a href="index.php?halaman=hapusproduk&id=<?php echo $pecah['id_produk']; ?>" class="btn-danger btn-xs">DELETE</a>
+				<a href="index.php?halaman=ubahproduk&id=<?php echo $pecah['id_produk']; ?>" class="btn-xs btn-warning">UPDATE</a>
 			</td>
 		</tr>
 		<?php $nomor++; ?>
@@ -31,3 +31,12 @@
 	</tbody>
 </table>
 <a href="index.php?halaman=tambahproduk" class="btn btn-primary btn-lg">ADD PRODUCT</a>
+<div class="container">                  
+  <ul class="pagination">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </ul>
+</div>

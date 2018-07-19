@@ -6,7 +6,7 @@
 			<th>no</th>
 			<th>customer name</th>
 			<th>tanggal pembelian</th>
-			<th>jumlah pembelian</th>
+			<th>total harga pembelian</th>
 			<th>aksi</th>
 		</tr>
 	</thead>
@@ -18,9 +18,9 @@
 			<td><?php echo $nomor; ?></td>
 			<td><?php echo $pecah['nama_pelanggan']; ?></td>
 			<td><?php echo $pecah['tanggal_pembelian']; ?></td>
-			<td><?php echo $pecah['jumlah_pembelian']; ?></td>
+			<td><?php echo $pecah['total_pembelian']; ?></td>
 			<td>
-			<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" class="btn btn-info">detail</a>
+			<a href="index.php?halaman=detail&id=<?php echo $pecah['id_pembelian']; ?>" class="btn-xs btn-info">detail</a>
 			</td>
 		</tr>
 		<?php $nomor++; ?>

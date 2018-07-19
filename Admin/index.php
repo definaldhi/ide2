@@ -18,7 +18,7 @@ if (!isset($_SESSION['admin']))
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <title>KingHardware Administrator</title>
 	<!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
@@ -40,28 +40,50 @@ if (!isset($_SESSION['admin']))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Binary admin</a> 
+                <a class="navbar-brand" href="index.html">KINGHARDWARE</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Last access : "date("Y-m-d")"; &nbsp; <a href="login.php" class="btn btn-danger square-btn-adjust">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
 					</li>
 
 
-    <li><a href="index.php"><i class="fa fa-laptop fa-3x"></i>HOME</a></li>
-    <li><a href="index.php?halaman=produk"><i class="fa fa-table fa-3x"></i>PRODUK</a></li>
-    <li><a href="index.php?halaman=pembelian"><i class="fa fa-table fa-3x"></i>PEMBELIAN</a></li>
-    <li><a href="index.php?halaman=pelanggan"><i class="fa fa-table fa-3x"></i>PELANGGAN</a></li>
-    <li><a href="index.php?halaman=kategori"><i class="fa fa-table fa-3x"></i>KATEGORI</a></li>
-    <li><a href="index.php?halaman=logout"><i class="fa fa-sign-out fa-3x"></i>LOGOUT</a></li>                          	
+    <li><a href="index.php"><i class="glyphicon glyphicon-home"></i>HOME</a></li>
+     <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>PRODUK<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                             <li>
+                                <a href="index.php?halaman=produk">Semua Produk</a>
+                            </li>
+                            <li>
+                                <a href="index.php?halaman=processor">Processor</a>
+                            </li>
+                            <li>
+                                <a href="index.php?halaman=vga">VGA</a>
+                            </li>
+                            <li>
+                                <a href="index.php?halaman=ram">RAM</a>
+                            </li>
+                            <li>
+                                <a href="index.php?halaman=mobo">Mother Board</a>
+                            </li>
+                            <li>
+                                <a href="index.php?halaman=harddisk">Harddisk</a>
+                            </li>
+                            <li>
+                                <a href="index.php?halaman=psu">Power Supply</a>
+                            </li>
+                        </ul>
+                    </li>
+    <li><a href="index.php?halaman=pembelian"><i class="glyphicon glyphicon-check"></i>PEMBELIAN</a></li>
+    <li><a href="index.php?halaman=pelanggan"><i class="glyphicon glyphicon-user"></i>PELANGGAN</a></li>
+    <li><a href="index.php?halaman=logout"><i class="glyphicon glyphicon-log-out"></i>LOGOUT</a></li>                          	
                 </ul>
                
             </div>
@@ -81,6 +103,30 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
                     elseif ($_GET['halaman']=="kategori")
                     { 
                         include 'kategori.php';
+                    }
+                    elseif ($_GET['halaman']=="vga")
+                    { 
+                        include 'vga.php';
+                    }
+                    elseif ($_GET['halaman']=="ram")
+                    { 
+                        include 'ram.php';
+                    }
+                    elseif ($_GET['halaman']=="processor")
+                    { 
+                        include 'processor.php';
+                    }
+                    elseif ($_GET['halaman']=="harddisk")
+                    { 
+                        include 'harddisk.php';
+                    }
+                    elseif ($_GET['halaman']=="mobo")
+                    { 
+                        include 'mobo.php';
+                    }
+                    elseif ($_GET['halaman']=="psu")
+                    { 
+                        include 'psu.php';
                     }
                     elseif ($_GET['halaman']=="pembelian")
                     { 
@@ -139,6 +185,11 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="login.html" class="
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
+    <div class="row row-copirayt">
+                <p class="text-center" class="panel-heading">
+                    © Copyright 2018 KING HARDWARE - All Rights Reserved
+                </p>
+            </div>
     <script src="assets/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>

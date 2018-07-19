@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 $koneksi = new mysqli("localhost","root","","ideshop")
 ?>
 <!DOCTYPE html>
@@ -23,9 +23,9 @@ $koneksi = new mysqli("localhost","root","","ideshop")
         <div class="row text-center ">
             <div class="col-md-12">
                 <br /><br />
-                <h2> Hardwareshop : Login</h2>
+                <h2> Kinghardware : Login</h2>
                
-                <h5>( Login yourself to get access )</h5>
+                <h5>( Login untuk mendaptkan akses belanja kebutuhan komputer anda )</h5>
                  <br />
             </div>
         </div>
@@ -34,7 +34,7 @@ $koneksi = new mysqli("localhost","root","","ideshop")
                   <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                        <strong>   Enter Details To Login </strong>  
+                        <strong>   Masukan email & password </strong>  
                             </div>
                             <div class="panel-body">
                                 <form role="form" method="post">
@@ -52,13 +52,13 @@ $koneksi = new mysqli("localhost","root","","ideshop")
                                                 <input type="checkbox" /> Remember me
                                             </label>
                                             <span class="pull-right">
-                                                   <a href="#" >Forget password ? </a> 
+                                                   <a href="home.php" >Kembali ke beranda </a> 
                                             </span>
                                         </div>
                                      
                                      <button class="btn btn-primary" name="login">Login</button>
                                     <hr />
-                                    Not register ? <a href="registeration.php" >click here </a> 
+                                    Belum Mendaftar ? <a href="registeration.php" >Daftar disini </a> 
                                     </form>
                                     <?php
                                     if (isset($_POST['login']))
@@ -66,19 +66,19 @@ $koneksi = new mysqli("localhost","root","","ideshop")
                                       $email = $_POST['email'];
                                       $pass = $_POST['pass'];
 
-                                      $sql = $koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password_pelanggan ='".md5($pass)."'");
-                                      $yangcocok = $sql->num_rows;
+                                      $ambil = $koneksi->query("SELECT * FROM pelanggan WHERE email_pelanggan='$email' AND password_pelanggan ='".md5($pass)."'");
+                                      $yangcocok = $ambil->num_rows;
                                       if ($yangcocok==1)
                                       {
-                                        session_start();
-                                        $_SESSION['pelanggan']=$sql->fetch_assoc();                                        
-                                        echo "<div class='alert alert-info'>Login Berhasil</div>";
-                                        echo "<meta http-equiv='refresh' content='1;url=home.php'>";
+                                      	$akun = $ambil->fetch_assoc();
+                                        $_SESSION['pelanggan']= $akun;                                        
+                                        echo "<script>alert('login berhasil');</script>";
+                                        echo "<script>location='checkout.php';</script>";
                                       }
                                       else  
                                       {
-                                        echo "<div class='alert alert-danger'>Login Gagal</div>";
-                                        //echo "<meta http-equiv='refresh' content='1;url=index.php'>";
+                                        echo "<script>alert('login gagal,silahkan periksa akun Anda');</script>";
+                                        echo "<script>location='login.php';</script>";
                                       }
                                     }
                                     ?>  

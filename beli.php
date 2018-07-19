@@ -13,6 +13,7 @@ else
 {
 	$_SESSION['keranjang'][$id_produk] = 1;
 }
+
 // larikan ke halaman keranjang
 echo "<script>alert('produk telah masuk kedalam keranjang belanja');</script>";
-echo "<script>location='keranjang.php';</script>";
+echo "<script>location='home.php';</script>";
